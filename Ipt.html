@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Pricing Table</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #f1f5f9;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f8fafc;
+  color: var(--text);
+}
+
+header {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--muted);
+}
+
+.pricing-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.plan {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.plan h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  color: var(--primary);
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.features li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--border);
+  position: relative;
+  cursor: pointer;
+}
+
+.features li:last-child {
+  border-bottom: none;
+}
+
+.tooltip {
+  position: absolute;
+  background: #0f172a;
+  color: white;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 0.4rem;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.features li:hover .tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.details {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 0.85rem;
+  color: var(--muted);
+  transition: max-height 0.3s ease;
+}
+
+.details.open {
+  max-height: 100px;
+}
+
+.options {
+  margin-top: auto;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+  </style>
+</head>
+<body><header>
+  <h1>Pricing Plans</h1>
+  <p>Select a plan and customize features to see real-time pricing</p>
+</header><main class="pricing-container">  <section class="plan" data-base="999">
+    <h2>Basic</h2>
+    <div class="price">₹<span class="total">999</span></div>
+    <ul class="features">
+      <li onclick="toggleDetails(this)">Email Support
+        <span class="tooltip">Response within 24 hours</span>
+        <div class="details">Includes basic troubleshooting and guidance.</div>
+      </li>
+      <li onclick="toggleDetails(this)">5 Projects
+        <span class="tooltip">Small scale usage</span>
+        <div class="details">Suitable for individual developers.</div>
+      </li>
+    </ul>
+    <div class="options">
+      <label><input type="checkbox" onchange="updatePrice(this, 200)"> Extra Storage (+₹200)</label>
+    </div>
+    <button>Select Plan</button>
+  </section>  <section class="plan" data-base="1999">
+    <h2>Pro</h2>
+    <div class="price">₹<span class="total">1999</span></div>
+    <ul class="features">
+      <li onclick="toggleDetails(this)">Priority Support
+        <span class="tooltip">Faster response</span>
+        <div class="details">Dedicated support channel.</div>
+      </li>
+      <li onclick="toggleDetails(this)">Unlimited Projects
+        <span class="tooltip">No limits</span>
+        <div class="details">Ideal for freelancers and startups.</div>
+      </li>
+    </ul>
+    <div class="options">
+      <label><input type="checkbox" onchange="updatePrice(this, 300)"> Team Access (+₹300)</label>
+    </div>
+    <button>Select Plan</button>
+  </section>  <section class="plan" data-base="2999">
+    <h2>Enterprise</h2>
+    <div class="price">₹<span class="total">2999</span></div>
+    <ul class="features">
+      <li onclick="toggleDetails(this)">Dedicated Manager
+        <span class="tooltip">One-on-one support</span>
+        <div class="details">Personal account manager assigned.</div>
+      </li>
+      <li onclick="toggleDetails(this)">Custom Integrations
+        <span class="tooltip">Advanced features</span>
+        <div class="details">Tailored solutions for business needs.</div>
+      </li>
+    </ul>
+    <div class="options">
+      <label><input type="checkbox" onchange="updatePrice(this, 500)"> SLA Support (+₹500)</label>
+    </div>
+    <button>Select Plan</button>
+  </section></main><footer>
+  © 2025 Pricing Table Project | Internship Assignment Demo
+</footer><script>
+  function toggleDetails(item) {
+    const details = item.querySelector('.details');
+    details.classList.toggle('open');
+  }
+
+  function updatePrice(checkbox, amount) {
+    const plan = checkbox.closest('.plan');
+    const base = parseInt(plan.dataset.base);
+    let total = base;
+
+    plan.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      if (cb.checked) total += parseInt(cb.getAttribute('onchange').match(/\d+/)[0]);
+    });
+
+    plan.querySelector('.total').textContent = total;
+  }
+</script></body>
+</html>

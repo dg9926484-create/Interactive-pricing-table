@@ -1,61 +1,70 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Pricing Table</title>
-        <link rel="stylesheet" href="css/style.css">
-        </head>
-        <body>
-        
-          <section class="pricing-table">
-              <h1>Our Plans</h1>
-                  <div class="table-container">
-                        <div class="plan">
-                                <h2>Basic</h2>
-                                        <p class="price">$10 / month</p>
-                                                <ul>
-                                                          <li data-tooltip="Access to basic features">Feature 1</li>
-                                                                    <li data-tooltip="Limited support">Feature 2</li>
-                                                                              <li data-tooltip="Community access">Feature 3</li>
-                                                                                      </ul>
-                                                                                              <button class="expand-btn">More Info</button>
-                                                                                                      <div class="extra-info">
-                                                                                                                <p>Additional details about this plan...</p>
-                                                                                                                        </div>
-                                                                                                                              </div>
-                                                                                                                              
-                                                                                                                                    <div class="plan">
-                                                                                                                                            <h2>Pro</h2>
-                                                                                                                                                    <p class="price">$25 / month</p>
-                                                                                                                                                            <ul>
-                                                                                                                                                                      <li data-tooltip="All basic features included">Feature 1</li>
-                                                                                                                                                                                <li data-tooltip="Priority support">Feature 2</li>
-                                                                                                                                                                                          <li data-tooltip="Analytics tools">Feature 3</li>
-                                                                                                                                                                                                  </ul>
-                                                                                                                                                                                                          <button class="expand-btn">More Info</button>
-                                                                                                                                                                                                                  <div class="extra-info">
-                                                                                                                                                                                                                            <p>Additional details about this plan...</p>
-                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                                          
-                                                                                                                                                                                                                                                <div class="plan">
-                                                                                                                                                                                                                                                        <h2>Enterprise</h2>
-                                                                                                                                                                                                                                                                <p class="price">$50 / month</p>
-                                                                                                                                                                                                                                                                        <ul>
-                                                                                                                                                                                                                                                                                  <li data-tooltip="All Pro features included">Feature 1</li>
-                                                                                                                                                                                                                                                                                            <li data-tooltip="Dedicated account manager">Feature 2</li>
-                                                                                                                                                                                                                                                                                                      <li data-tooltip="Custom solutions">Feature 3</li>
-                                                                                                                                                                                                                                                                                                              </ul>
-                                                                                                                                                                                                                                                                                                                      <button class="expand-btn">More Info</button>
-                                                                                                                                                                                                                                                                                                                              <div class="extra-info">
-                                                                                                                                                                                                                                                                                                                                        <p>Additional details about this plan...</p>
-                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                      </div>
-                                                                                                                                                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                                                                                                                                                            </section>
-                                                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                              <script src="js/script.js"></script>
-                                                                                                                                                                                                                                                                                                                                                              </body>
-                                                                                                                                                                                                                                                                                                                                                              </html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Pricing Tables</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>Choose Your Plan</h1>
+  <p>Simple, transparent pricing</p>
+
+  <div class="toggle">
+    <span>Monthly</span>
+    <input type="checkbox" id="billingToggle">
+    <span>Yearly (Save 20%)</span>
+  </div>
+</header>
+
+<section class="pricing-table">
+
+  <div class="card">
+    <h2>Basic</h2>
+    <p class="price" data-month="499" data-year="399">₹499</p>
+    <ul>
+      <li>✔ 5 Projects</li>
+      <li>✔ Email Support</li>
+      <li class="tooltip">
+        ❔ Analytics
+        <span class="tooltip-text">Basic usage analytics</span>
+      </li>
+    </ul>
+    <button>Select Plan</button>
+  </div>
+
+  <div class="card popular">
+    <h2>Standard</h2>
+    <p class="price" data-month="999" data-year="799">₹999</p>
+    <ul>
+      <li>✔ 20 Projects</li>
+      <li>✔ Priority Support</li>
+      <li class="tooltip">
+        ❔ Analytics
+        <span class="tooltip-text">Advanced reports & insights</span>
+      </li>
+    </ul>
+    <button>Select Plan</button>
+  </div>
+
+  <div class="card">
+    <h2>Premium</h2>
+    <p class="price" data-month="1499" data-year="1199">₹1499</p>
+    <ul>
+      <li>✔ Unlimited Projects</li>
+      <li>✔ 24/7 Support</li>
+      <li class="tooltip">
+        ❔ Analytics
+        <span class="tooltip-text">Full analytics + exports</span>
+      </li>
+    </ul>
+    <button>Select Plan</button>
+  </div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
